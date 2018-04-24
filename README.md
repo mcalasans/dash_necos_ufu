@@ -1,6 +1,6 @@
 # dash_necos_ufu
 
-Host: Ubuntu 16.04 e Virtualbox
+Host: Ubuntu 16.04 e Virtualbox 5.2.10
 
 I- Criar rede interna no Virtualbox
 --------------------------------------------------
@@ -100,4 +100,6 @@ d) Instalar o Ubuntu
 23. Finalizar a instalação clicando em Continue
 		
 
-
+III - Configurar o servidor DASH
+-------------------------------------------------
+Observação: Recomendável salvar uma cópia de segurança antes, clonando a máquina.
