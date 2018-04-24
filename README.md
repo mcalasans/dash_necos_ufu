@@ -24,6 +24,7 @@ a) Baixar imagem do Ubuntu Server 16.04. Exemplo:
 $ wget http://ubuntu.c3sl.ufpr.br/releases/16.04.4/ubuntu-16.04.4-server-amd64.iso
 ```
 
+
 b) Criar a máquina no Virtualbox
 
 1. Clicar em New
@@ -53,6 +54,7 @@ b) Criar a máquina no Virtualbox
     - Name: vboxnet0 (rede criada em I)
 12. Clicar em OK
 
+
 c) Configurar a ISO de instalação do Ubuntu
 
 1. Clicar em Settings (com a VM selecionada)
@@ -62,5 +64,40 @@ c) Configurar a ISO de instalação do Ubuntu
 5. Clicar em "Choose Virtual..."
 6. Selecionar a ISO e clicar em Open
 7. Clicar em OK
+
+
+d) Instalar o Ubuntu
+
+1.  Selecionar a VM DASHServer e clicar em Start
+2.  Selecionar English
+3.  Selecionar Install Ubuntu Server
+4.  Language: English - English
+5.  Location: Other -> South America -> Brazil
+6.  Locales: United States - en_US.UTF-8
+7.  Autodetect Keyboard: No
+8.  Keyboard origin: Portuguese (Brazil)
+9.  Keyboard layout: Portuguese (Brazil)
+10. Primary network: enp0s3 <adaptador1>
+11. Hostname: dashserver
+12. User: serveruser
+13. Username: serveruser
+14. Password: u@Dash$1
+15. Homedir Encryption: No
+16. Clock: America/Sao_Paulo (Yes)
+17. Partition Method: Manual
+18. Partition Disks: (sda)
+    - Create new partition table: Yes
+    - Selecionar o espaço livre
+    - Create a new partition: "2GB" "primary" "beginning" "use as:swap" Done
+    - Selecionar o espaço livre
+    - Create a new partition: "30.2GB" "primary" "use as:Ext4..." "mount point:\" Done
+    - Finish parttioning(...)
+    - Verificar e clicar em Yes
+19. Proxy: <nao configurar>
+20. Tasksel: No automatic updates
+21. Software: standard system utilities; OpenSSH server; 
+22. GRUB Install: Yes
+23. Finalizar a instalação clicando em Continue
+		
 
 
