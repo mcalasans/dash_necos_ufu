@@ -32,7 +32,7 @@ b) Criar a máquina no Virtualbox
    - Name: DASHServer
    - Type: Linux
    - Version: Ubuntu 64 bits
-   - Memory: 2048 MB
+   - Memory: 512 MB
    - Hard disk: Create a virtual hard disk now
 4. Clicar em Create
 5. Configurar:
@@ -46,5 +46,10 @@ b) Criar a máquina no Virtualbox
 9. Configurar:
    - Enable Network Adapter (marcar)
    - Attached to: Internal Network
-10. Clicar em OK
+10. Clicar em Network -> Adapter 3
+11. Configurar:
+   - Enable Network Adapter (marcar)
+   - Attached to: Host-only Adapter
+   - Name: vboxnet0 (rede criada em I)
+12. Clicar em OK
 
