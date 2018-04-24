@@ -112,3 +112,29 @@ $ sudo apt-get upgrade
 $ sudo apt-get dist-upgrade
 $ sudo apt-get install unzip
 ```
+
+**b) Alterar o /etc/sudoers para não solicitar senha**
+
+```$ sudo visudo```
+
+Incluir a seguinte linha no final do arquivo:
+
+```serveruser ALL=(ALL:ALL) NOPASSWD: ALL```
+
+Salvar como /etc/sudoers.
+
+**c) Alterar o /etc/inputrc para pesquisar o histórico com PgUp e PgDn**
+
+```$ sudo vim /etc/inputrc```
+
+Descomentar as linhas (41 e 42):
+
+```
+"\e[5~": history-search-backward
+"\e[6~": history-search-forward
+```
+
+Salvar o arquivo (:x) e logar novamente.
+
+
+
