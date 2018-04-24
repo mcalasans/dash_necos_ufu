@@ -181,3 +181,8 @@ Reiniciar o servidor:
 $ sudo shutdown -r now
 ```
 
+O restante do documento pode ser executado via ssh da máquina local:
+
+```
+$ ssh serveruser@192.168.56.10
+```
