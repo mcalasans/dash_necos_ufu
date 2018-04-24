@@ -4,7 +4,7 @@ Host: Ubuntu 16.04 e Virtualbox 5.2.10
 
 I- Criar rede interna no Virtualbox
 --------------------------------------------------
-**a) Criar a rede interna
+**a) Criar a rede interna**
 
 1. File-> Host Network Manager
 2. Clicar em Create
@@ -18,13 +18,13 @@ I- Criar rede interna no Virtualbox
 
 II - Criar VM do servidor DASH
 --------------------------------------------------
-**a) Baixar imagem do Ubuntu Server 16.04. Exemplo:
+**a) Baixar imagem do Ubuntu Server 16.04. Exemplo:**
 
 ```
 $ wget http://ubuntu.c3sl.ufpr.br/releases/16.04.4/ubuntu-16.04.4-server-amd64.iso
 ```
 
-**b) Criar a máquina no Virtualbox
+**b) Criar a máquina no Virtualbox**
 
 1. Clicar em New
 2. Clicar em Expert Mode
@@ -54,7 +54,7 @@ $ wget http://ubuntu.c3sl.ufpr.br/releases/16.04.4/ubuntu-16.04.4-server-amd64.i
 12. Clicar em OK
 
 
-c) Configurar a ISO de instalação do Ubuntu
+**c) Configurar a ISO de instalação do Ubuntu**
 
 1. Clicar em Settings (com a VM selecionada)
 2. Clicar em Storage
@@ -64,7 +64,7 @@ c) Configurar a ISO de instalação do Ubuntu
 6. Selecionar a ISO e clicar em Open
 7. Clicar em OK
 
-**d) Instalar o Ubuntu
+**d) Instalar o Ubuntu**
 
 1.  Selecionar a VM DASHServer e clicar em Start
 2.  Selecionar English
