@@ -181,7 +181,7 @@ Reiniciar o servidor:
 $ sudo shutdown -r now
 ```
 
-O restante do documento pode ser executado via ssh da máquina local:
+O restante do documento pode ser executado via ssh da máquina hospederia (192.168.56.1) para o servidor:
 
 ```
 $ ssh serveruser@192.168.56.10
