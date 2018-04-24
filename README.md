@@ -143,7 +143,8 @@ Descomentar as linhas (41 e 42):
 Salvar o arquivo (:x) e logar novamente.
 
 **d) Configurar as interfaces no /etc/network/interfaces.** 
-Obs.: Para saber o nome das interfaces use antes o comando "ip link show"
+
+Obs.: Para saber o nome das interfaces use antes o comando ```ip link show```.
 
 ```
 $ sudo vim /etc/network/interfaces
