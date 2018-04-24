@@ -102,7 +102,7 @@ Remover a ISO após instalação.
 
 III - Configurar o servidor DASH
 -------------------------------------------------
-Observação: Recomendável salvar uma cópia de segurança antes, clonando a máquina (desligada).
+Obs.: Recomendável salvar uma cópia de segurança antes, clonando a máquina (desligada).
 
 **a) Atualizar os pacotes e instalar o unzip**
 
@@ -142,5 +142,41 @@ Descomentar as linhas (41 e 42):
 
 Salvar o arquivo (:x) e logar novamente.
 
+**d) Configurar as interfaces no /etc/network/interfaces.** 
+Obs.: Para saber o nome das interfaces use antes o comando "ip link show"
 
+```
+$ sudo vim /etc/network/interfaces
+```
+
+O arquivo deve incluir a configuração das três interfaces:
+
+```
+# NAT
+# The primary network interface
+auto enp0s3
+iface enp0s3 inet dhcp
+
+# Internal Network
+auto enp0s8
+iface enp0s8 inet static
+address 172.16.0.10
+netmask 255.255.255.0
+network 172.16.0.0
+broadcast 172.16.0.255
+
+# Host-only
+auto enp0s9
+iface enp0s9 inet static
+address 192.168.56.10
+netmask 255.255.255.0
+network 192.168.56.0
+broadcast 192.168.56.255
+```
+
+Reiniciar o servidor:
+
+```
+$ sudo shutdown -r now
+```
 
