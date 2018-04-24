@@ -79,7 +79,7 @@ $ wget http://ubuntu.c3sl.ufpr.br/releases/16.04.4/ubuntu-16.04.4-server-amd64.i
 11. Hostname: dashserver
 12. User: serveruser
 13. Username: serveruser
-14. Password: u@Dash$1
+14. Password: 
 15. Homedir Encryption: No
 16. Clock: America/Sao_Paulo (Yes)
 17. Partition Method: Manual
