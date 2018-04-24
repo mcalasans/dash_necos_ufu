@@ -48,8 +48,8 @@ b) Criar a máquina no Virtualbox
    - Attached to: Internal Network
 10. Clicar em Network -> Adapter 3
 11. Configurar:
-   - Enable Network Adapter (marcar)
-   - Attached to: Host-only Adapter
-   - Name: vboxnet0 (rede criada em I)
+    - Enable Network Adapter (marcar)
+    - Attached to: Host-only Adapter
+    - Name: vboxnet0 (rede criada em I)
 12. Clicar em OK
 
