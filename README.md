@@ -62,7 +62,8 @@ $ wget http://ubuntu.c3sl.ufpr.br/releases/16.04.4/ubuntu-16.04.4-server-amd64.i
 4. Clicar no ícone do CD em Optical Drive
 5. Clicar em "Choose Virtual..."
 6. Selecionar a ISO e clicar em Open
-7. Clicar em OK
+7. Marcar Live CD/DVD
+8. Clicar em OK
 
 **d) Instalar o Ubuntu**
 
@@ -97,7 +98,17 @@ $ wget http://ubuntu.c3sl.ufpr.br/releases/16.04.4/ubuntu-16.04.4-server-amd64.i
 22. GRUB Install: Yes
 23. Finalizar a instalação clicando em Continue
 		
+Remover a ISO após instalação.
 
 III - Configurar o servidor DASH
 -------------------------------------------------
-Observação: Recomendável salvar uma cópia de segurança antes, clonando a máquina.
+Observação: Recomendável salvar uma cópia de segurança antes, clonando a máquina (desligada).
+
+**a) Atualizar os pacotes e instalar o unzip**
+
+```
+$ sudo apt-get update
+$ sudo apt-get upgrade
+$ sudo apt-get dist-upgrade
+$ sudo apt-get install unzip
+```
