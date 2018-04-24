@@ -53,3 +53,14 @@ b) Criar a máquina no Virtualbox
     - Name: vboxnet0 (rede criada em I)
 12. Clicar em OK
 
+c) Configurar a ISO de instalação do Ubuntu
+
+1. Clicar em Settings (com a VM selecionada)
+2. Clicar em Storage
+3. Selecionar o ícone do CD (empty) em Storage Devices
+4. Clicar no ícone do CD em Optical Drive
+5. Clicar em "Choose Virtual..."
+6. Selecionar a ISO e clicar em Open
+7. Clicar em OK
+
+
