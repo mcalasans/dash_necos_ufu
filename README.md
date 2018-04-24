@@ -115,17 +115,23 @@ $ sudo apt-get install unzip
 
 **b) Alterar o /etc/sudoers para não solicitar senha**
 
-```$ sudo visudo```
+```
+$ sudo visudo
+```
 
 Incluir a seguinte linha no final do arquivo:
 
-```serveruser ALL=(ALL:ALL) NOPASSWD: ALL```
+```
+serveruser ALL=(ALL:ALL) NOPASSWD: ALL
+```
 
 Salvar como /etc/sudoers.
 
 **c) Alterar o /etc/inputrc para pesquisar o histórico com PgUp e PgDn**
 
-```$ sudo vim /etc/inputrc```
+```
+$ sudo vim /etc/inputrc
+```
 
 Descomentar as linhas (41 e 42):
 
