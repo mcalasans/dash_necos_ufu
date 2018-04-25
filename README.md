@@ -224,3 +224,21 @@ Reiniciar configuração do apache:
 $ sudo systemctl reload apache2
 ```
 
+**f) Instalar o ffmpeg**
+
+1. Remover pacotes existentes:
+
+   ```
+   $ sudo apt-get autoremove git
+   $ hash -r
+   ```
+
+2. Baixar as dependencias:
+
+   ```
+   $ sudo apt-get update
+   $ sudo apt-get -y install build-essential checkinstall git libfaac-dev libgpac-dev \
+   libjack-jackd2-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev \
+   librtmp-dev libsdl1.2-dev libtheora-dev libva-dev libvdpau-dev libvorbis-dev \
+   libx11-dev libxfixes-dev pkg-config texi2html zlib1g-dev libass-dev cmake mercurial
+   ```
