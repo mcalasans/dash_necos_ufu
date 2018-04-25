@@ -224,7 +224,7 @@ Reiniciar configuração do apache:
 sudo systemctl reload apache2
 ```
 
-f) Instalar o ffmpeg
+**f) Instalar o ffmpeg**
 
 Se desejar remover pacotes existentes (instalações prévias):
   
