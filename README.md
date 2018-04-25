@@ -229,7 +229,7 @@ sudo systemctl reload apache2
 Se desejar remover pacotes existentes (instalações prévias):
   
   ```
-  rm -rf ~/ffmpeg_build ~/ffmpeg_sources ~/bin/{ffmpeg,ffprobe,ffserver,x265,nasm}
+  rm -rf ~/ffmpeg_build ~/ffmpeg_sources ~/bin/{ffmpeg,ffprobe,ffserver,x265,nasm,ndisasm}
   sed -i '/ffmpeg_build/d' ~/.manpath
   hash -r
   sudo apt-get autoremove autoconf automake build-essential checkinstall git libfaac-dev \
@@ -295,7 +295,8 @@ Se desejar remover pacotes existentes (instalações prévias):
 
 5. Instalar ffmpeg
 
-$ cd ~/ffmpeg_sources && \
+```
+cd ~/ffmpeg_sources && \
 wget -O ffmpeg-snapshot.tar.bz2 http://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2 && \
 tar xjvf ffmpeg-snapshot.tar.bz2 && \
 cd ffmpeg && \
@@ -321,4 +322,23 @@ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./conf
 PATH="$HOME/bin:$PATH" make && \
 make install && \
 hash -r
+```
+
+**g) Instalar o MP4Box**
+
+
+```
+sudo apt install gpac
+```
+
+
+**h) Gerar os arquivos de áudio e vídeo.**
+
+1. Obter arquivo de teste:
+
+```
+sudo mkdir /var/www/html/video && \
+cd /var/www/html/video && \
+sudo wget http://www.bogotobogo.com/VideoStreaming/Files/HLS/source.mp4
+```
 
