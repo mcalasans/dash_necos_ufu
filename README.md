@@ -186,3 +186,41 @@ O restante do documento pode ser executado via ssh da máquina hospederia (192.1
 ```
 $ ssh serveruser@192.168.56.10
 ```
+
+**e) Instalar o apache e configurar o MIME**
+
+```
+$ sudo apt-get install apache2
+```
+
+Editar o arquivo mime.conf
+
+```
+$ sudo vim /etc/apache2/mods-available/mime.conf
+```
+
+Incluir as linhas no local apropriado:
+
+```
+        AddType application/dash+xml .mpd
+        AddType application/x-mpegURL .m3u8
+        
+        AddType audio/aac .aac
+        AddType audio/mp4 .mp4 .m4a
+        AddType audio/mpeg .mp1 .mp2 .mp3 .mpg .mpeg
+        AddType audio/ogg .oga .ogg
+        AddType audio/wav .wav
+        AddType audio/webm .webm
+
+        AddType video/mp4 .mp4 .m4v
+        AddType video/ogg .ogv
+        AddType video/webm .webm
+        AddType video/MP2T .ts
+```
+
+Reiniciar configuração do apache:
+
+```
+$ sudo systemctl reload apache2
+```
+
