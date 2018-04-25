@@ -18,7 +18,9 @@ I- Criar rede interna no Virtualbox
 
 II - Criar VM do servidor DASH
 --------------------------------------------------
-**a) Baixar imagem do Ubuntu Server 16.04. Exemplo:**
+**a) Baixar imagem do Ubuntu Server 16.04.**
+
+Exemplo:
 
 ```
 wget http://ubuntu.c3sl.ufpr.br/releases/16.04.4/ubuntu-16.04.4-server-amd64.iso
@@ -187,13 +189,15 @@ O restante do documento pode ser executado via ssh da máquina hospederia (192.1
 ssh serveruser@192.168.56.10
 ```
 
-**e) Instalar o apache e configurar o MIME**
+**e) Instalar o Apache e configurar o MIME**
+
+Instalar o Apache:
 
 ```
 sudo apt-get install apache2
 ```
 
-Editar o arquivo mime.conf
+Editar o arquivo mime.conf:
 
 ```
 sudo vim /etc/apache2/mods-available/mime.conf
@@ -228,34 +232,34 @@ sudo systemctl reload apache2
 
 Se desejar remover pacotes existentes (instalações prévias):
   
-  ```
-  rm -rf ~/ffmpeg_build ~/ffmpeg_sources ~/bin/{ffmpeg,ffprobe,ffserver,x265,nasm,ndisasm}
-  sed -i '/ffmpeg_build/d' ~/.manpath
-  hash -r
-  sudo apt-get autoremove autoconf automake build-essential checkinstall git libfaac-dev \
-  libgpac-dev libjack-jackd2-dev libopencore-amrnb-dev libopencore-amrwb-dev \
-  librtmp-dev libsdl1.2-dev libtheora-dev libva-dev libvdpau-dev libvorbis-dev \
-  libx11-dev libxfixes-dev pkg-config texi2html zlib1g-dev libass-dev cmake mercurial \
-  yasm libx264-dev libvpx-dev libfdk-aac-dev libmp3lame-dev libopus-dev
-  ```
+```
+rm -rf ~/ffmpeg_build ~/ffmpeg_sources ~/bin/{ffmpeg,ffprobe,ffserver,x265,nasm,ndisasm}
+sed -i '/ffmpeg_build/d' ~/.manpath
+hash -r
+sudo apt-get autoremove autoconf automake build-essential checkinstall git libfaac-dev \
+libgpac-dev libjack-jackd2-dev libopencore-amrnb-dev libopencore-amrwb-dev \
+librtmp-dev libsdl1.2-dev libtheora-dev libva-dev libvdpau-dev libvorbis-dev \
+libx11-dev libxfixes-dev pkg-config texi2html zlib1g-dev libass-dev cmake mercurial \
+yasm libx264-dev libvpx-dev libfdk-aac-dev libmp3lame-dev libopus-dev
+```
 
-1. Baixar as dependencias:
+Baixar as dependencias:
 
-  ```
-  sudo apt-get update
-  sudo apt-get -y install autoconf automake build-essential checkinstall git libfaac-dev \
-  libgpac-dev libjack-jackd2-dev libopencore-amrnb-dev libopencore-amrwb-dev \
-  librtmp-dev libsdl1.2-dev libtheora-dev libva-dev libvdpau-dev libvorbis-dev \
-  libx11-dev libxfixes-dev pkg-config texi2html zlib1g-dev libass-dev cmake mercurial
-  ```
+```
+sudo apt-get update
+sudo apt-get -y install autoconf automake build-essential checkinstall git libfaac-dev \
+libgpac-dev libjack-jackd2-dev libopencore-amrnb-dev libopencore-amrwb-dev \
+librtmp-dev libsdl1.2-dev libtheora-dev libva-dev libvdpau-dev libvorbis-dev \
+libx11-dev libxfixes-dev pkg-config texi2html zlib1g-dev libass-dev cmake mercurial
+```
 
-2. Criar os diretórios:
+Criar os diretórios:
 
-  ```
-  mkdir -p ~/ffmpeg_sources ~/bin 
-  ```
+```
+mkdir -p ~/ffmpeg_sources ~/bin 
+```
 
-3. Instalar as bibliotecas:
+Instalar as bibliotecas:
 
    - NASM (assembler): 
    
@@ -293,7 +297,8 @@ Se desejar remover pacotes existentes (instalações prévias):
    make install
    ```
 
-5. Instalar ffmpeg
+
+Instalar o ffmpeg:
 
 ```
 cd ~/ffmpeg_sources && \
@@ -326,19 +331,18 @@ hash -r
 
 **g) Instalar o MP4Box**
 
-
 ```
 sudo apt install gpac
 ```
 
 
-**h) Gerar os arquivos de áudio e vídeo.**
-
-1. Obter arquivo de teste:
+**h) Obter arquivo de teste**
 
 ```
 sudo mkdir /var/www/html/video && \
 cd /var/www/html/video && \
 sudo wget http://www.bogotobogo.com/VideoStreaming/Files/HLS/source.mp4
 ```
+
+
 
