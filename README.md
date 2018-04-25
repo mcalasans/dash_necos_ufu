@@ -226,7 +226,7 @@ sudo systemctl reload apache2
 
 f) Instalar o ffmpeg
 
-  Se desejar remover pacotes existentes (instalações prévias):
+Se desejar remover pacotes existentes (instalações prévias):
   
   ```
   rm -rf ~/ffmpeg_build ~/ffmpeg_sources ~/bin/{ffmpeg,ffprobe,ffserver,vsyasm,x264,yasm,ytasm}
@@ -267,23 +267,31 @@ f) Instalar o ffmpeg
    make install
    ```
    
-. YASM (assembler) - v1.3.0-2 
-.libx264 (H.264 video encoder) - v148
-.libvpx (VP8/VP9 video encoder and decoder) - v1.5.0-2
-.libfdk-aac (AAC audio encoder) - v0.1.3
-.libmp3lame (MP3 audio encoder) - v3.99.5
-.libopus (Opus audio decoder and encoder) - v1.1.2
+   
+   - YASM (assembler) - v1.3.0-2 
+   - libx264 (H.264 video encoder) - v148
+   - libvpx (VP8/VP9 video encoder and decoder) - v1.5.0-2
+   - libfdk-aac (AAC audio encoder) - v0.1.3
+   - libmp3lame (MP3 audio encoder) - v3.99.5
+   - libopus (Opus audio decoder and encoder) - v1.1.2
+   
+   ``` 
+   sudo apt-get install yasm libx264-dev libvpx-dev libfdk-aac-dev libmp3lame-dev libopus-dev
+   ```
+ 
 
-$ sudo apt-get install yasm libx264-dev libvpx-dev libfdk-aac-dev libmp3lame-dev libopus-dev
-
-.libx265 (H.265/HEVC video encoder) - tem de ser compilada
-
-$ cd ~/ffmpeg_sources && \
-if cd x265 2> /dev/null; then hg pull && hg update; else hg clone https://bitbucket.org/multicoreware/x265; fi && \
-cd x265/build/linux && \
-PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_SHARED:bool=off ../../source && \
-PATH="$HOME/bin:$PATH" make && \
-make install
+   - libx265 (H.265/HEVC video encoder) - tem de ser compilada
+ 
+   ```
+   cd ~/ffmpeg_sources && \
+   if cd x265 2> /dev/null; then hg pull && hg update; \ 
+   else hg clone https://bitbucket.org/multicoreware/x265; fi && \
+   cd x265/build/linux && \
+   PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" \    
+   -DENABLE_SHARED:bool=off ../../source && \
+   PATH="$HOME/bin:$PATH" make && \
+   make install
+   ```
 
 5. Instalar ffmpeg
 
