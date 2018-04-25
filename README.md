@@ -229,12 +229,13 @@ sudo systemctl reload apache2
 Se desejar remover pacotes existentes (instalações prévias):
   
   ```
-  rm -rf ~/ffmpeg_build ~/ffmpeg_sources ~/bin/{ffmpeg,ffprobe,ffserver,vsyasm,x264,yasm,ytasm}
+  rm -rf ~/ffmpeg_build ~/ffmpeg_sources ~/bin/{ffmpeg,ffprobe,ffserver,x265,nasm}
   sed -i '/ffmpeg_build/d' ~/.manpath
   hash -r
-  sudo apt-get autoremove autoconf automake build-essential git libass-dev libgpac-dev \
-  libmp3lame-dev libopus-dev libsdl1.2-dev libtheora-dev libtool libva-dev libvdpau-dev \
-  libvorbis-dev libvpx-dev libx11-dev libxext-dev libxfixes-dev texi2html zlib1g-dev yasm mercurial
+  sudo apt-get autoremove autoconf automake build-essential checkinstall git libfaac-dev \
+  libgpac-dev libjack-jackd2-dev libopencore-amrnb-dev libopencore-amrwb-dev \
+  librtmp-dev libsdl1.2-dev libtheora-dev libva-dev libvdpau-dev libvorbis-dev \
+  libx11-dev libxfixes-dev pkg-config texi2html zlib1g-dev libass-dev cmake mercurial
   ```
 
 1. Baixar as dependencias:
@@ -244,7 +245,8 @@ Se desejar remover pacotes existentes (instalações prévias):
   sudo apt-get -y install autoconf automake build-essential checkinstall git libfaac-dev \
   libgpac-dev libjack-jackd2-dev libopencore-amrnb-dev libopencore-amrwb-dev \
   librtmp-dev libsdl1.2-dev libtheora-dev libva-dev libvdpau-dev libvorbis-dev \
-  libx11-dev libxfixes-dev pkg-config texi2html zlib1g-dev libass-dev cmake mercurial
+  libx11-dev libxfixes-dev pkg-config texi2html zlib1g-dev libass-dev cmake mercurial \
+  yasm libx264-dev libvpx-dev libfdk-aac-dev libmp3lame-dev libopus-dev
   ```
 
 2. Criar os diretórios:
