@@ -235,7 +235,8 @@ Se desejar remover pacotes existentes (instalações prévias):
   sudo apt-get autoremove autoconf automake build-essential checkinstall git libfaac-dev \
   libgpac-dev libjack-jackd2-dev libopencore-amrnb-dev libopencore-amrwb-dev \
   librtmp-dev libsdl1.2-dev libtheora-dev libva-dev libvdpau-dev libvorbis-dev \
-  libx11-dev libxfixes-dev pkg-config texi2html zlib1g-dev libass-dev cmake mercurial
+  libx11-dev libxfixes-dev pkg-config texi2html zlib1g-dev libass-dev cmake mercurial \
+  yasm libx264-dev libvpx-dev libfdk-aac-dev libmp3lame-dev libopus-dev
   ```
 
 1. Baixar as dependencias:
@@ -245,8 +246,7 @@ Se desejar remover pacotes existentes (instalações prévias):
   sudo apt-get -y install autoconf automake build-essential checkinstall git libfaac-dev \
   libgpac-dev libjack-jackd2-dev libopencore-amrnb-dev libopencore-amrwb-dev \
   librtmp-dev libsdl1.2-dev libtheora-dev libva-dev libvdpau-dev libvorbis-dev \
-  libx11-dev libxfixes-dev pkg-config texi2html zlib1g-dev libass-dev cmake mercurial \
-  yasm libx264-dev libvpx-dev libfdk-aac-dev libmp3lame-dev libopus-dev
+  libx11-dev libxfixes-dev pkg-config texi2html zlib1g-dev libass-dev cmake mercurial
   ```
 
 2. Criar os diretórios:
@@ -286,11 +286,9 @@ Se desejar remover pacotes existentes (instalações prévias):
  
    ```
    cd ~/ffmpeg_sources && \
-   if cd x265 2> /dev/null; then hg pull && hg update; \ 
-   else hg clone https://bitbucket.org/multicoreware/x265; fi && \
+   if cd x265 2> /dev/null; then hg pull && hg update; else hg clone https://bitbucket.org/multicoreware/x265; fi && \
    cd x265/build/linux && \
-   PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" \    
-   -DENABLE_SHARED:bool=off ../../source && \
+   PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_SHARED:bool=off ../../source && \
    PATH="$HOME/bin:$PATH" make && \
    make install
    ```
