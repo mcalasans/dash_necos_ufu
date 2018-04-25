@@ -240,7 +240,7 @@ Se desejar remover pacotes existentes (instalações prévias):
 1. Baixar as dependencias:
 
   ```
-  udo apt-get update
+  sudo apt-get update
   sudo apt-get -y install autoconf automake build-essential checkinstall git libfaac-dev \
   libgpac-dev libjack-jackd2-dev libopencore-amrnb-dev libopencore-amrwb-dev \
   librtmp-dev libsdl1.2-dev libtheora-dev libva-dev libvdpau-dev libvorbis-dev \
