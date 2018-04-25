@@ -21,7 +21,7 @@ II - Criar VM do servidor DASH
 **a) Baixar imagem do Ubuntu Server 16.04. Exemplo:**
 
 ```
-$ wget http://ubuntu.c3sl.ufpr.br/releases/16.04.4/ubuntu-16.04.4-server-amd64.iso
+wget http://ubuntu.c3sl.ufpr.br/releases/16.04.4/ubuntu-16.04.4-server-amd64.iso
 ```
 
 **b) Criar a máquina no Virtualbox**
@@ -107,16 +107,16 @@ Obs.: Recomendável salvar uma cópia de segurança antes, clonando a máquina (
 **a) Atualizar os pacotes e instalar o unzip**
 
 ```
-$ sudo apt-get update
-$ sudo apt-get upgrade
-$ sudo apt-get dist-upgrade
-$ sudo apt-get install unzip
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+sudo apt-get install unzip
 ```
 
 **b) Alterar o /etc/sudoers para não solicitar senha**
 
 ```
-$ sudo visudo
+sudo visudo
 ```
 
 Incluir a seguinte linha no final do arquivo:
@@ -130,7 +130,7 @@ Salvar como /etc/sudoers.
 **c) Alterar o /etc/inputrc para pesquisar o histórico com PgUp e PgDn**
 
 ```
-$ sudo vim /etc/inputrc
+sudo vim /etc/inputrc
 ```
 
 Descomentar as linhas (41 e 42):
@@ -147,7 +147,7 @@ Salvar o arquivo (:x) e logar novamente.
 Obs.: Para saber o nome das interfaces use antes o comando ```ip link show```.
 
 ```
-$ sudo vim /etc/network/interfaces
+sudo vim /etc/network/interfaces
 ```
 
 O arquivo deve incluir a configuração das três interfaces:
@@ -178,25 +178,25 @@ broadcast 192.168.56.255
 Reiniciar o servidor:
 
 ```
-$ sudo shutdown -r now
+sudo shutdown -r now
 ```
 
 O restante do documento pode ser executado via ssh da máquina hospederia (192.168.56.1) para o servidor:
 
 ```
-$ ssh serveruser@192.168.56.10
+ssh serveruser@192.168.56.10
 ```
 
 **e) Instalar o apache e configurar o MIME**
 
 ```
-$ sudo apt-get install apache2
+sudo apt-get install apache2
 ```
 
 Editar o arquivo mime.conf
 
 ```
-$ sudo vim /etc/apache2/mods-available/mime.conf
+sudo vim /etc/apache2/mods-available/mime.conf
 ```
 
 Incluir as linhas no local apropriado:
@@ -221,24 +221,96 @@ Incluir as linhas no local apropriado:
 Reiniciar configuração do apache:
 
 ```
-$ sudo systemctl reload apache2
+sudo systemctl reload apache2
 ```
 
-**f) Instalar o ffmpeg**
+f) Instalar o ffmpeg
 
-1. Remover pacotes existentes:
+  Se desejar remover pacotes existentes (instalações prévias):
+  
+  ```
+  rm -rf ~/ffmpeg_build ~/ffmpeg_sources ~/bin/{ffmpeg,ffprobe,ffserver,vsyasm,x264,yasm,ytasm}
+  sed -i '/ffmpeg_build/d' ~/.manpath
+  hash -r
+  sudo apt-get autoremove autoconf automake build-essential git libass-dev libgpac-dev \
+  libmp3lame-dev libopus-dev libsdl1.2-dev libtheora-dev libtool libva-dev libvdpau-dev \
+  libvorbis-dev libvpx-dev libx11-dev libxext-dev libxfixes-dev texi2html zlib1g-dev yasm mercurial
+  ```
 
-   ```
-   $ sudo apt-get autoremove git
-   $ hash -r
-   ```
+1. Baixar as dependencias:
 
-2. Baixar as dependencias:
+  ```
+  udo apt-get update
+  sudo apt-get -y install autoconf automake build-essential checkinstall git libfaac-dev \
+  libgpac-dev libjack-jackd2-dev libopencore-amrnb-dev libopencore-amrwb-dev \
+  librtmp-dev libsdl1.2-dev libtheora-dev libva-dev libvdpau-dev libvorbis-dev \
+  libx11-dev libxfixes-dev pkg-config texi2html zlib1g-dev libass-dev cmake mercurial
+  ```
 
+2. Criar os diretórios:
+
+  ```
+  mkdir -p ~/ffmpeg_sources ~/bin 
+  ```
+
+3. Instalar as bibliotecas:
+
+   - NASM (assembler): 
+   
    ```
-   $ sudo apt-get update
-   $ sudo apt-get -y install build-essential checkinstall git libfaac-dev libgpac-dev \
-   libjack-jackd2-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev \
-   librtmp-dev libsdl1.2-dev libtheora-dev libva-dev libvdpau-dev libvorbis-dev \
-   libx11-dev libxfixes-dev pkg-config texi2html zlib1g-dev libass-dev cmake mercurial
+   cd ~/ffmpeg_sources && \
+   wget http://www.nasm.us/pub/nasm/releasebuilds/2.13.02/nasm-2.13.02.tar.bz2 && \
+   tar xjvf nasm-2.13.02.tar.bz2 && \
+   cd nasm-2.13.02 && \
+   PATH="$HOME/bin:$PATH" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin" && \
+   make && \
+   make install
    ```
+   
+. YASM (assembler) - v1.3.0-2 
+.libx264 (H.264 video encoder) - v148
+.libvpx (VP8/VP9 video encoder and decoder) - v1.5.0-2
+.libfdk-aac (AAC audio encoder) - v0.1.3
+.libmp3lame (MP3 audio encoder) - v3.99.5
+.libopus (Opus audio decoder and encoder) - v1.1.2
+
+$ sudo apt-get install yasm libx264-dev libvpx-dev libfdk-aac-dev libmp3lame-dev libopus-dev
+
+.libx265 (H.265/HEVC video encoder) - tem de ser compilada
+
+$ cd ~/ffmpeg_sources && \
+if cd x265 2> /dev/null; then hg pull && hg update; else hg clone https://bitbucket.org/multicoreware/x265; fi && \
+cd x265/build/linux && \
+PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_SHARED:bool=off ../../source && \
+PATH="$HOME/bin:$PATH" make && \
+make install
+
+5. Instalar ffmpeg
+
+$ cd ~/ffmpeg_sources && \
+wget -O ffmpeg-snapshot.tar.bz2 http://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2 && \
+tar xjvf ffmpeg-snapshot.tar.bz2 && \
+cd ffmpeg && \
+PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure \
+  --prefix="$HOME/ffmpeg_build" \
+  --pkg-config-flags="--static" \
+  --extra-cflags="-I$HOME/ffmpeg_build/include" \
+  --extra-ldflags="-L$HOME/ffmpeg_build/lib" \
+  --extra-libs="-lpthread -lm" \
+  --bindir="$HOME/bin" \
+  --enable-gpl \
+  --enable-libass \
+  --enable-libfdk-aac \
+  --enable-libfreetype \
+  --enable-libmp3lame \
+  --enable-libopus \
+  --enable-libtheora \
+  --enable-libvorbis \
+  --enable-libvpx \
+  --enable-libx264 \
+  --enable-libx265 \
+  --enable-nonfree && \
+PATH="$HOME/bin:$PATH" make && \
+make install && \
+hash -r
+
