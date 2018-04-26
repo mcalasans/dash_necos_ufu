@@ -261,7 +261,7 @@ mkdir -p ~/ffmpeg_sources ~/bin
 
 Instalar as bibliotecas:
 
-   - NASM (assembler): 
+   + NASM (assembler): 
    
    ```
    cd ~/ffmpeg_sources && \
@@ -274,19 +274,19 @@ Instalar as bibliotecas:
    ```
    
    
-   - YASM (assembler) - v1.3.0-2 
-   - libx264 (H.264 video encoder) - v148
-   - libvpx (VP8/VP9 video encoder and decoder) - v1.5.0-2
+   + YASM (assembler) \- v1.3.0-2 
+   - libx264 (H.264 video encoder) \- v148
+   - libvpx (VP8/VP9 video encoder and decoder) \- v1.5.0-2
    - libfdk-aac (AAC audio encoder) - v0.1.3
-   - libmp3lame (MP3 audio encoder) - v3.99.5
-   - libopus (Opus audio decoder and encoder) - v1.1.2
+   - libmp3lame (MP3 audio encoder) \- v3.99.5
+   - libopus (Opus audio decoder and encoder) \- v1.1.2
    
    ``` 
    sudo apt-get install yasm libx264-dev libvpx-dev libfdk-aac-dev libmp3lame-dev libopus-dev
    ```
  
 
-   - libx265 (H.265/HEVC video encoder) - tem de ser compilada
+   - libx265 (H.265/HEVC video encoder) \- tem de ser compilada:
  
    ```
    cd ~/ffmpeg_sources && \
@@ -355,13 +355,13 @@ MP4Box -info source.mp4
 
 **i) Gerar arquivo de áudio:**
 
-Extrair a faixa de audio e a recodificar com dois canais (stereo) a 128kb/s:
+Extrair a faixa de audio e a recodificar com dois canais (stereo) a 128kbps:
 
 ```
 ffmpeg -i source.mp4 -c:a aac -ac 2 -b:a 128k -vn source-audio-128k.mp4
 ```
 
-Extrair a faixa de audio e a recodificar com dois canais (stereo) a 32kb/s:
+Extrair a faixa de audio e a recodificar com dois canais (stereo) a 32kbps:
 
 ```
 ffmpeg -i source.mp4 -c:a aac -ac 2 -b:a 128k -vn source-audio-32k.mp4
