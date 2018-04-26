@@ -329,6 +329,8 @@ make install && \
 hash -r
 ```
 
+Maiores informações sobre a instalação do ffmpeg no Ubuntu podem ser obtidas em (http://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu)
+
 **g) Instalar o MP4Box**
 
 ```
@@ -339,10 +341,30 @@ sudo apt install gpac
 **h) Obter arquivo de teste**
 
 ```
-sudo mkdir /var/www/html/video && \
-cd /var/www/html/video && \
-sudo wget http://www.bogotobogo.com/VideoStreaming/Files/HLS/source.mp4
+mkdir ~/video && \
+  cd ~/video && \
+  wget http://www.bogotobogo.com/VideoStreaming/Files/HLS/source.mp4
+```
+
+Para ver informações sobre o vídeo:
+
+```
+MP4Box -info source.mp4
 ```
 
 
+**i) Gerar arquivo de áudio:**
+
+Extrair a faixa de audio e a recodificar com dois canais (stereo) a 128kb/s:
+
+$ ffmpeg -i source.mp4 -c:a aac -ac 2 -b:a 128k -vn source-audio-128k.mp4
+
+Extrair a faixa de audio e a recodificar com dois canais (stereo) a 32kb/s:
+$ ffmpeg -i source.mp4 -c:a aac -ac 2 -b:a 128k -vn source-audio-32k.mp4
+
+Extrair a faixa de audio como é:
+$ ffmpeg -i source.mp4 -c:a copy -vn source-audio.mp4
+
+Onde -c:a = codec de áudio; -ac: número de canais; -vn: desconsidera vídeo; e -b:a = bitrate de áudio.
+Maiores informações sobre o codec AAC podem sem obtidas em http://trac.ffmpeg.org/wiki/Encode/AAC.
 
