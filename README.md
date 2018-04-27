@@ -369,7 +369,7 @@ ffmpeg -i source.mp4 -c:a aac -ac 2 -b:a 128k -vn source-audio-32k.mp4
 
 Onde 
 
-i    = arquivo de entrada  
+-i   = arquivo de entrada  
 -c:a = codec de áudio  
 -ac  = número de canais  
 -vn  = desconsidera vídeo   
