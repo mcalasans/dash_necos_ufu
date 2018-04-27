@@ -351,7 +351,10 @@ Para ver informações sobre o vídeo:
 ```
 MP4Box -info source.mp4
 ```
-
+ou 
+```
+ffmpeg -i source.mp4
+```
 
 **i) Gerar arquivo de áudio:**
 
@@ -364,7 +367,7 @@ ffmpeg -i source.mp4 -c:a aac -ac 2 -b:a 128k -vn source-audio-128k.mp4
 Extrair a faixa de audio e a recodificar com dois canais (stereo) a 32kbps:
 
 ```
-ffmpeg -i source.mp4 -c:a aac -ac 2 -b:a 128k -vn source-audio-32k.mp4
+ffmpeg -i source.mp4 -c:a aac -ac 2 -b:a 32k -vn source-audio-32k.mp4
 ```
 
 Onde 
