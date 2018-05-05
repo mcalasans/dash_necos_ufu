@@ -390,12 +390,21 @@ Maiores informações sobre o codec AAC podem sem obtidas [aqui](http://trac.ffm
 
 **j) Gerar arquivos de vídeo:**
 
+Extrair os arquivos de vídeos e recodificá-los de quatro formas diferentes, variando a resolução, a taxa de bits e os frames por segundo, conforme informado abaixo:
+
+| Resolução | Fps | Bitrate |
+| --------- | --- | ------- |
+| 256x144   | 12  | 300k    | 
+| 320x240   | 18  | 700k    |
+| 640x480   | 24  | 2100k   |
+| 1280x720  | 30  | 3760k   |
+
 
 Codificação: H.264
 Força a ter um quadro chave a cada 24 quadros. como o video é 24fps, tem um quadro chave por segundo.
 O buffer deve ser menor que a taxa de solicitação (já que os segmentos tem duração de 1s)
 
-ffmpeg -i source.mp4 -an -r 12 -c:v libx264 -x264opts 'keyint=12:min-keyint=12:no-scenecut' -b:v 300k -maxrate 300k -bufsize 150k -vf 'scale=256:144' source_256x144_12_300k.mp4 
+ffmpeg -i source.mp4 -an -r 12 -c:v libx264 -x264opts 'keyint=12:min-keyint=12:no-scenecut' -b:v 300k -maxrate 300k -bufsize 150k -vf 'scale=256:144' source_256x144_12_300k.mp4
 
 ffmpeg -i source.mp4 -an -r 18 -c:v libx264 -x264opts 'keyint=18:min-keyint=18:no-scenecut' -b:v 700k -maxrate 700k -bufsize 350k -vf 'scale=320:240' source_320x240_18_700k.mp4
 
