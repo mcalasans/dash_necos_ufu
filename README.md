@@ -366,16 +366,16 @@ ffmpeg -i source.mp4
 
 **i) Gerar arquivo de áudio:**
 
-Extrair a faixa de audio e a recodificar com dois canais (stereo) a 128kbps:
-
-```
-ffmpeg -i source.mp4 -c:a aac -ac 2 -b:a 128k -vn source-audio-128k.mp4
-```
-
-Extrair a faixa de audio e a recodificar com dois canais (stereo) a 32kbps:
+Extrair a faixa de audio e recodificá-la com dois canais (stereo) a 32kbps:
 
 ```
 ffmpeg -i source.mp4 -c:a aac -ac 2 -b:a 32k -vn source-audio-32k.mp4
+```
+
+Extrair a faixa de audio e recodificá-la com dois canais (stereo) a 128kbps:
+
+```
+ffmpeg -i source.mp4 -c:a aac -ac 2 -b:a 128k -vn source-audio-128k.mp4
 ```
 
 Onde 
@@ -392,9 +392,9 @@ Para extrair a faixa de audio como é:
 ffmpeg -i source.mp4 -c:a copy -vn source-audio.mp4
 ```
 
-Maiores informações sobre o codec AAC podem sem obtidas em http://trac.ffmpeg.org/wiki/Encode/AAC.
+Maiores informações sobre o codec AAC podem sem obtidas [aqui](http://trac.ffmpeg.org/wiki/Encode/AAC).
 
-j) Gerar arquivos de vídeo:
+**j) Gerar arquivos de vídeo:**
 
 # Codificação: H.264
 # Força a ter um quadro chave a cada 24 quadros. como o video é 24fps, tem um quadro chave por segundo.
