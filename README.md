@@ -340,7 +340,7 @@ sudo apt install gpac
 
 **h) Obter arquivo de teste**
 
-O arquivo de teste utilizado está disponível [aqui] (https://www.xiph.org/video/vid1.shtml). O arquivo é utilizado apenas para fins acadêmicos e todos os direitos são reservados aos autores do vídeo, conforme especificado na página.
+O arquivo de teste utilizado está disponível [aqui](https://www.xiph.org/video/vid1.shtml). O arquivo é utilizado apenas para fins acadêmicos e todos os direitos são reservados aos autores do vídeo, conforme especificado na página.
 
 ```
 mkdir ~/video && \
