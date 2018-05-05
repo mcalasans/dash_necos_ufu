@@ -340,10 +340,18 @@ sudo apt install gpac
 
 **h) Obter arquivo de teste**
 
+O arquivo de teste utilizado está disponível [aqui] (https://www.xiph.org/video/vid1.shtml). O arquivo é utilizado apenas para fins acadêmicos e todos os direitos são reservados aos autores do vídeo, conforme especificado na página.
+
 ```
 mkdir ~/video && \
 cd ~/video && \
-wget http://www.bogotobogo.com/VideoStreaming/Files/HLS/source.mp4
+wget http://downloads.xiph.org/video/A_Digital_Media_Primer_For_Geeks-720p.webm
+```
+
+Como o vídeo está em formato WebM, ele precisará ser convertido para MP4:
+
+```
+ffmpeg -fflags +genpts -i source.webm -r 30 source.mp4
 ```
 
 Para ver informações sobre o vídeo:
@@ -385,4 +393,19 @@ ffmpeg -i source.mp4 -c:a copy -vn source-audio.mp4
 ```
 
 Maiores informações sobre o codec AAC podem sem obtidas em http://trac.ffmpeg.org/wiki/Encode/AAC.
+
+j) Gerar arquivos de vídeo:
+
+# Codificação: H.264
+# Força a ter um quadro chave a cada 24 quadros. como o video é 24fps, tem um quadro chave por segundo.
+# O buffer deve ser menor que a taxa de solicitação (já que os segmentos tem duração de 1s)
+
+ffmpeg -i source.mp4 -an -r 12 -c:v libx264 -x264opts 'keyint=12:min-keyint=12:no-scenecut' -b:v 300k -maxrate 300k -bufsize 150k -vf 'scale=256:144' source_256x144_12_300k.mp4 
+
+ffmpeg -i source.mp4 -an -r 18 -c:v libx264 -x264opts 'keyint=18:min-keyint=18:no-scenecut' -b:v 700k -maxrate 700k -bufsize 350k -vf 'scale=320:240' source_320x240_18_700k.mp4
+
+ffmpeg -i source.mp4 -an -r 24 -c:v libx264 -x264opts 'keyint=24:min-keyint=24:no-scenecut' -b:v 2100k -maxrate 2100k -bufsize 1050k -vf 'scale=640:480' source_640x480_24_2100k.mp4
+
+ffmpeg -i source.mp4 -an -r 30 -c:v libx264 -x264opts 'keyint=30:min-keyint=30:no-scenecut' -b:v 3760k -maxrate 3760k -bufsize 1880k -vf 'scale=1280:720' source_1280x720_30_3760k.mp4
+
 
