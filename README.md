@@ -399,17 +399,29 @@ Extrair os arquivos de vídeos e recodificá-los de quatro formas diferentes, va
 | 640x480   | 24  | 2100k   |
 | 1280x720  | 30  | 3760k   |
 
+O tamanho do seguimento nas quatro versões é igual a 1s. Os comandos ```ffmpeg``` correspondentes são apresentados a seguir:
 
-Codificação: H.264
-Força a ter um quadro chave a cada 24 quadros. como o video é 24fps, tem um quadro chave por segundo.
-O buffer deve ser menor que a taxa de solicitação (já que os segmentos tem duração de 1s)
+```
+ffmpeg -i source.mp4 -an -r 12 -c:v libx264 -x264-params 'keyint=12:min-keyint=12:no-scenecut' -b:v 300k -maxrate 300k -bufsize 150k -vf 'scale=256:144' source_256x144_12_300k.mp4 && \
+ffmpeg -i source.mp4 -an -r 18 -c:v libx264 -x264-params 'keyint=18:min-keyint=18:no-scenecut' -b:v 700k -maxrate 700k -bufsize 350k -vf 'scale=320:240' source_320x240_18_700k.mp4 && \
+ffmpeg -i source.mp4 -an -r 24 -c:v libx264 -x264-params 'keyint=24:min-keyint=24:no-scenecut' -b:v 2100k -maxrate 2100k -bufsize 1050k -vf 'scale=640:480' source_640x480_24_2100k.mp4 && \
+ffmpeg -i source.mp4 -an -r 30 -c:v libx264 -x264-params 'keyint=30:min-keyint=30:no-scenecut' -b:v 3760k -maxrate 3760k -bufsize 1880k -vf 'scale=1280:720' source_1280x720_30_3760k.mp4
+```
 
-ffmpeg -i source.mp4 -an -r 12 -c:v libx264 -x264opts 'keyint=12:min-keyint=12:no-scenecut' -b:v 300k -maxrate 300k -bufsize 150k -vf 'scale=256:144' source_256x144_12_300k.mp4
+Onde 
 
-ffmpeg -i source.mp4 -an -r 18 -c:v libx264 -x264opts 'keyint=18:min-keyint=18:no-scenecut' -b:v 700k -maxrate 700k -bufsize 350k -vf 'scale=320:240' source_320x240_18_700k.mp4
+-i           = arquivo de entrada  
+-an          = desconsidera áudio   
+-c:v         = codec de vídeo  
+-x264-params =   
+-keyint      = 
+-min-key-int =
+-no-scenecut =
+-b:v         = bitrate de áudio  
+-maxrate     =  
+-bufsize     =
+-vf          =  
+scale        =
 
-ffmpeg -i source.mp4 -an -r 24 -c:v libx264 -x264opts 'keyint=24:min-keyint=24:no-scenecut' -b:v 2100k -maxrate 2100k -bufsize 1050k -vf 'scale=640:480' source_640x480_24_2100k.mp4
-
-ffmpeg -i source.mp4 -an -r 30 -c:v libx264 -x264opts 'keyint=30:min-keyint=30:no-scenecut' -b:v 3760k -maxrate 3760k -bufsize 1880k -vf 'scale=1280:720' source_1280x720_30_3760k.mp4
-
+Maiores informações sobre o codec H.264 podem sem obtidas [aqui](http://trac.ffmpeg.org/wiki/Encode/H.264).
 
