@@ -273,8 +273,7 @@ Instalar as bibliotecas:
    make install
    ```
    
-   
-   + YASM (assembler) \- v1.3.0-2 
+   - YASM (assembler) \- v1.3.0-2 
    - libx264 (H.264 video encoder) \- v148
    - libvpx (VP8/VP9 video encoder and decoder) \- v1.5.0-2
    - libfdk-aac (AAC audio encoder) - v0.1.3
@@ -285,7 +284,6 @@ Instalar as bibliotecas:
    sudo apt-get install yasm libx264-dev libvpx-dev libfdk-aac-dev libmp3lame-dev libopus-dev
    ```
  
-
    - libx265 (H.265/HEVC video encoder) \- tem de ser compilada:
  
    ```
@@ -366,16 +364,12 @@ ffmpeg -i source.mp4
 
 **i) Gerar arquivo de áudio:**
 
-Extrair a faixa de audio e recodificá-la com dois canais (stereo) a 32kbps:
+Extrair a faixa de audio e recodificá-la com dois canais (stereo) a 128, 64 e 32kps:
 
 ```
+ffmpeg -i source.mp4 -c:a aac -ac 2 -b:a 128k -vn source-audio-128k.mp4 && \
+ffmpeg -i source.mp4 -c:a aac -ac 2 -b:a 64k -vn source-audio-64k.mp4 && \
 ffmpeg -i source.mp4 -c:a aac -ac 2 -b:a 32k -vn source-audio-32k.mp4
-```
-
-Extrair a faixa de audio e recodificá-la com dois canais (stereo) a 128kbps:
-
-```
-ffmpeg -i source.mp4 -c:a aac -ac 2 -b:a 128k -vn source-audio-128k.mp4
 ```
 
 Onde 
@@ -396,9 +390,10 @@ Maiores informações sobre o codec AAC podem sem obtidas [aqui](http://trac.ffm
 
 **j) Gerar arquivos de vídeo:**
 
-# Codificação: H.264
-# Força a ter um quadro chave a cada 24 quadros. como o video é 24fps, tem um quadro chave por segundo.
-# O buffer deve ser menor que a taxa de solicitação (já que os segmentos tem duração de 1s)
+
+Codificação: H.264
+Força a ter um quadro chave a cada 24 quadros. como o video é 24fps, tem um quadro chave por segundo.
+O buffer deve ser menor que a taxa de solicitação (já que os segmentos tem duração de 1s)
 
 ffmpeg -i source.mp4 -an -r 12 -c:v libx264 -x264opts 'keyint=12:min-keyint=12:no-scenecut' -b:v 300k -maxrate 300k -bufsize 150k -vf 'scale=256:144' source_256x144_12_300k.mp4 
 
