@@ -408,15 +408,16 @@ ffmpeg -i source.mp4 -an -r 24 -c:v libx264 -x264-params 'keyint=24:min-keyint=2
 ffmpeg -i source.mp4 -an -r 30 -c:v libx264 -x264-params 'keyint=30:min-keyint=30:no-scenecut' -b:v 3760k -maxrate 3760k -bufsize 1880k -vf 'scale=1280:720' source_1280x720_30_3760k.mp4
 ```
 
-Onde 
+Onde,
 
 -i           = arquivo de entrada  
--an          = desconsidera áudio   
+-an          = desconsidera áudio 
+-r           = taxa de quadros/segundo (fps)  
 -c:v         = codec de vídeo  
 -x264-params =   
--keyint      = 
--min-key-int =
--no-scenecut =
+-keyint      =   
+-min-key-int =  
+-no-scenecut =  
 -b:v         = bitrate de áudio  
 -maxrate     =  
 -bufsize     =
