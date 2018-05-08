@@ -414,15 +414,16 @@ Onde,
 -an          = desconsidera áudio 
 -r           = taxa de quadros/segundo (fps)  
 -c:v         = codec de vídeo  
--x264-params =   
--keyint      =   
--min-key-int =  
--no-scenecut =  
--b:v         = bitrate de áudio  
--maxrate     =  
--bufsize     =
--vf          =  
-scale        =
+-x264-params = soprepõe as configurações usando uma lista de parametro=valor separados por dois pontos (:)  
+keyint       = tamanho máximo do GOP (group of pictures; distancia entre I-frames)  
+min-keyint   = tamanho mínimo do GOP  
+no-scenecut  = desabilita completamente decisão adaptativa de quadros I-frame  
+keyint=X:min-keyint=X:no-scenecut = força o codificador a usar um GOP de tamanho constante  
+-b:v         = taxa de bits (bitrate) de vídeo  
+-maxrate     = taxa de bits máxima em qualquer ponto do vídeo. Requer que o tamanho do buffer seja configurado  
+-bufsize     = tamanho do buffer em bits
+-vf          = 
+scale        =  
 
-Maiores informações sobre o codec H.264 podem sem obtidas [aqui](http://trac.ffmpeg.org/wiki/Encode/H.264).
+Maiores informações sobre o codec H.264 podem ser obtidas [aqui](http://trac.ffmpeg.org/wiki/Encode/H.264).
 
