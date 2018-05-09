@@ -424,8 +424,8 @@ ffmpeg -i source.mp4 -an -r 30 -c:v libx264 -x264-params 'keyint=30:min-keyint=3
 
 Onde,
 
--i           = arquivo de entrada  
--an          = desconsidera áudio 
+`-i`           = arquivo de entrada  
+`-an`          = desconsidera áudio 
 -r           = taxa de quadros/segundo (fps)  
 -c:v         = codec de vídeo  
 -x264-params = soprepõe as configurações usando uma lista de parametro=valor separados por dois pontos (:)  
