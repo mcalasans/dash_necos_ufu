@@ -1,5 +1,7 @@
 # dash_necos_ufu
 
+Para compreensão do conceito de streaming adaptativo, recomenda-se a leitura do artigo [Adaptative Streaming](https://bitmovin.com/adaptive-streaming/)
+
 Host: Ubuntu 16.04 e Virtualbox 5.2.10
 
 I- Criar rede interna no Virtualbox
@@ -421,9 +423,14 @@ no-scenecut  = desabilita completamente decisão adaptativa de quadros I-frame
 keyint=X:min-keyint=X:no-scenecut = força o codificador a usar um GOP de tamanho constante  
 -b:v         = taxa de bits (bitrate) de vídeo  
 -maxrate     = taxa de bits máxima em qualquer ponto do vídeo. Requer que o tamanho do buffer seja configurado  
--bufsize     = tamanho do buffer em bits
--vf          = 
-scale        =  
+-bufsize     = tamanho do buffer em bits  
+-vf          = filtro de vídeo 
+scale        = resolução do vídeo 
 
-Maiores informações sobre o codec H.264 podem ser obtidas [aqui](http://trac.ffmpeg.org/wiki/Encode/H.264).
+Maiores informações sobre o codec H.264 podem ser obtidas [aqui](http://trac.ffmpeg.org/wiki/Encode/H.264). Outras informações sobre parâmetros e codificações de vídeo nos links abaixo:  
+
+[FFmpeg - Limiting the output bitrate](https://trac.ffmpeg.org/wiki/Limiting%20the%20output%20bitrate)  
+[FFmpeg Codecs Documentation](https://ffmpeg.org/ffmpeg-codecs.html#libx264_002c-libx264rgb)  
+[x264 FFmpeg Options Guide](https://sites.google.com/site/linuxencoding/x264-ffmpeg-mapping)
+
 
