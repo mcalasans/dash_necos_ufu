@@ -2,6 +2,7 @@
 
 Para compreensão do conceito de streaming adaptativo, recomenda-se a leitura do artigo [Adaptative Streaming](https://bitmovin.com/adaptive-streaming/). Outras referências de apoio sobre o MPEG-DASH:
 
+- [MPEG-DASH](https://mpeg.chiariglione.org/standards/mpeg-dash)
 - [How to encode Multi-bitrate videos in MPEG-DASH for MSE based media players - 1](https://blog.streamroot.io/encode-multi-bitrate-videos-mpeg-dash-mse-based-media-players/) e [2](https://blog.streamroot.io/encode-multi-bitrate-videos-mpeg-dash-mse-based-media-players-22/)  
 - [MPEG-DASH: GOP](https://kvssoft.wordpress.com/2015/01/28/mpeg-dash-gop/)  
 
@@ -436,7 +437,7 @@ Onde,
 `-b:v`         = taxa de bits (bitrate) de vídeo  
 `-maxrate`     = taxa de bits máxima em qualquer ponto do vídeo. Requer que o tamanho do buffer seja configurado  
 `-bufsize`     = tamanho do buffer em bits  
-`-vf`          = filtro de vídeo 
+`-vf`          = filtro de vídeo  
 `scale`        = resolução do vídeo 
 
 Maiores informações sobre o codec H.264 podem ser obtidas [aqui](http://trac.ffmpeg.org/wiki/Encode/H.264). Outras informações sobre parâmetros e codificações de vídeo nos links abaixo:  
@@ -452,8 +453,10 @@ Maiores informações sobre o codec H.264 podem ser obtidas [aqui](http://trac.f
 **l) Gerar os arquivos de manifesto**
 
 ```
-MP4Box -dash 1000 -rap -frag-rap -profile onDemand -out source-mp4.mpd source-video-720.mp4 source-video-480.mp4 source-video-360.mp4 source-video-240.mp4 source-audio-stereo.mp4
+MP4Box -dash 1000 -rap -frag-rap -profile onDemand -out source-mp4.mpd source_256x144_12_300k.mp4 source_320x240_18_700k.mp4 source_640x480_24_2100k.mp4 source_1280x720_30_3760k.mp4 source-audio-128k.mp4 source-audio-32k.mp4
 ```
+
+
 
 **m) Baixar o DASH.js**
 
