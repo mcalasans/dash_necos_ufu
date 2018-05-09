@@ -404,6 +404,15 @@ Extrair os arquivos de vídeos e recodificá-los de quatro formas diferentes, va
 | 640x480   | 24  | 2100k   |
 | 1280x720  | 30  | 3760k   |
 
+Abaixo, algumas referências sobre escolha de resoluções de vídeo:
+
+- [Apple](https://developer.apple.com/library/content/documentation/General/Reference/HLSAuthoringSpec/Requirements.html#//apple_ref/doc/uid/TP40016596-CH2-SW1)
+- [Bitmovin](https://bitmovin.com/video-bitrate-streaming-hls-dash/)
+- [Google](https://support.google.com/youtube/answer/2853702)
+- [IBM](https://support.video.ibm.com/hc/en-us/articles/207852117-Internet-connection-and-recommended-encoding-settings)
+- [Netflix](http://www.streamingmedia.com/Articles/Editorial/Featured-Articles/How-Netflix-Pioneered-Per-Title-Video-Encoding-Optimization-108547.aspx)
+- [Twitch.tv](https://stream.twitch.tv/encoding/)
+
 O tamanho do seguimento nas quatro versões é igual a 1s. Os comandos ```ffmpeg``` correspondentes são apresentados a seguir:
 
 ```
@@ -437,6 +446,8 @@ Maiores informações sobre o codec H.264 podem ser obtidas [aqui](http://trac.f
 - [FFmpeg - Filtering Guide](https://trac.ffmpeg.org/wiki/FilteringGuide)  
 - [FFmpeg Codecs Documentation](https://ffmpeg.org/ffmpeg-codecs.html#libx264_002c-libx264rgb)  
 - [x264 FFmpeg Options Guide](https://sites.google.com/site/linuxencoding/x264-ffmpeg-mapping)  
+- [FFmpeg Command Options](http://www.bogotobogo.com/VideoStreaming/ffmpeg_options_list.php)  
+
 
 
 
