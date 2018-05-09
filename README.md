@@ -2,8 +2,8 @@
 
 Para compreensão do conceito de streaming adaptativo, recomenda-se a leitura do artigo [Adaptative Streaming](https://bitmovin.com/adaptive-streaming/). Outras referências de apoio sobre o MPEG-DASH:
 
-How to encode Multi-bitrate videos in MPEG-DASH for MSE based media players - [1](https://blog.streamroot.io/encode-multi-bitrate-videos-mpeg-dash-mse-based-media-players/) e [2](https://blog.streamroot.io/encode-multi-bitrate-videos-mpeg-dash-mse-based-media-players-22/)  
-[MPEG-DASH: GOP](https://kvssoft.wordpress.com/2015/01/28/mpeg-dash-gop/)  
+- [How to encode Multi-bitrate videos in MPEG-DASH for MSE based media players - 1](https://blog.streamroot.io/encode-multi-bitrate-videos-mpeg-dash-mse-based-media-players/) e [2](https://blog.streamroot.io/encode-multi-bitrate-videos-mpeg-dash-mse-based-media-players-22/)  
+- [MPEG-DASH: GOP](https://kvssoft.wordpress.com/2015/01/28/mpeg-dash-gop/)  
 
 Host: Ubuntu 16.04 e Virtualbox 5.2.10
 
