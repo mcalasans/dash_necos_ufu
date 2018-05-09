@@ -5,7 +5,7 @@ Para compreensão do conceito de streaming adaptativo, recomenda-se a leitura do
 - [How to encode Multi-bitrate videos in MPEG-DASH for MSE based media players - 1](https://blog.streamroot.io/encode-multi-bitrate-videos-mpeg-dash-mse-based-media-players/) e [2](https://blog.streamroot.io/encode-multi-bitrate-videos-mpeg-dash-mse-based-media-players-22/)  
 - [MPEG-DASH: GOP](https://kvssoft.wordpress.com/2015/01/28/mpeg-dash-gop/)  
 
-Host: Ubuntu 16.04 e Virtualbox 5.2.10
+Neste tutorial, considera-se o Ubuntu 16.04 como sistema operacional da máquina hospedeira e Virtualbox 5.2.10 instalado.
 
 I- Criar rede interna no Virtualbox
 --------------------------------------------------
@@ -432,10 +432,11 @@ scale        = resolução do vídeo
 
 Maiores informações sobre o codec H.264 podem ser obtidas [aqui](http://trac.ffmpeg.org/wiki/Encode/H.264). Outras informações sobre parâmetros e codificações de vídeo nos links abaixo:  
 
-[FFmpeg - Limiting the output bitrate](https://trac.ffmpeg.org/wiki/Limiting%20the%20output%20bitrate)  
-[FFmpeg - Filtering Guide](https://trac.ffmpeg.org/wiki/FilteringGuide)  
-[FFmpeg Codecs Documentation](https://ffmpeg.org/ffmpeg-codecs.html#libx264_002c-libx264rgb)  
-[x264 FFmpeg Options Guide](https://sites.google.com/site/linuxencoding/x264-ffmpeg-mapping)  
+- [Understanding Rate Control Modes (x264, x265, vpx)](http://slhck.info/video/2017/03/01/rate-control.html)  
+- [FFmpeg - Limiting the output bitrate](https://trac.ffmpeg.org/wiki/Limiting%20the%20output%20bitrate)  
+- [FFmpeg - Filtering Guide](https://trac.ffmpeg.org/wiki/FilteringGuide)  
+- [FFmpeg Codecs Documentation](https://ffmpeg.org/ffmpeg-codecs.html#libx264_002c-libx264rgb)  
+- [x264 FFmpeg Options Guide](https://sites.google.com/site/linuxencoding/x264-ffmpeg-mapping)  
 
 
 
