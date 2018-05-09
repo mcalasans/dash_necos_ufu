@@ -379,11 +379,11 @@ ffmpeg -i source.mp4 -c:a aac -ac 2 -b:a 32k -vn source-audio-32k.mp4
 
 Onde 
 
--i   = arquivo de entrada  
--c:a = codec de áudio  
--ac  = número de canais  
--vn  = desconsidera vídeo   
--b:a = bitrate de áudio  
+`-i`   = arquivo de entrada  
+`-c:a` = codec de áudio  
+`-ac`  = número de canais  
+`-vn`  = desconsidera vídeo   
+`-b:a` = bitrate de áudio  
 
 Para extrair a faixa de audio como é:
 
@@ -425,19 +425,19 @@ ffmpeg -i source.mp4 -an -r 30 -c:v libx264 -x264-params 'keyint=30:min-keyint=3
 Onde,
 
 `-i`           = arquivo de entrada  
-`-an`          = desconsidera áudio 
--r           = taxa de quadros/segundo (fps)  
--c:v         = codec de vídeo  
--x264-params = soprepõe as configurações usando uma lista de parametro=valor separados por dois pontos (:)  
-keyint       = tamanho máximo do GOP (group of pictures; distancia entre I-frames)  
-min-keyint   = tamanho mínimo do GOP  
-no-scenecut  = desabilita completamente decisão adaptativa de quadros I-frame  
-keyint=X:min-keyint=X:no-scenecut = força o codificador a usar um GOP de tamanho constante  
--b:v         = taxa de bits (bitrate) de vídeo  
--maxrate     = taxa de bits máxima em qualquer ponto do vídeo. Requer que o tamanho do buffer seja configurado  
--bufsize     = tamanho do buffer em bits  
--vf          = filtro de vídeo 
-scale        = resolução do vídeo 
+`-an`          = desconsidera áudio  
+`-r`           = taxa de quadros/segundo (fps)  
+`-c:v`         = codec de vídeo  
+`-x264-params` = soprepõe as configurações usando uma lista de parametro=valor separados por dois pontos (:)  
+`keyint`       = tamanho máximo do GOP (group of pictures; distancia entre I-frames)  
+`min-keyint`   = tamanho mínimo do GOP  
+`no-scenecut`  = desabilita completamente decisão adaptativa de quadros I-frame  
+`keyint=X:min-keyint=X:no-scenecut` = força o codificador a usar um GOP de tamanho constante  
+`-b:v`         = taxa de bits (bitrate) de vídeo  
+`-maxrate`     = taxa de bits máxima em qualquer ponto do vídeo. Requer que o tamanho do buffer seja configurado  
+`-bufsize`     = tamanho do buffer em bits  
+`-vf`          = filtro de vídeo 
+`scale`        = resolução do vídeo 
 
 Maiores informações sobre o codec H.264 podem ser obtidas [aqui](http://trac.ffmpeg.org/wiki/Encode/H.264). Outras informações sobre parâmetros e codificações de vídeo nos links abaixo:  
 
