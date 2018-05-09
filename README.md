@@ -460,11 +460,11 @@ MP4Box -dash 1000 -rap -frag-rap -profile onDemand -out source-mp4.mpd source_25
 
 Onde,
 
-`-dash`    = duração do segmento em milisegundos
-`-rap`     = força o segmento a começar cum um pontos de acesso aleatórios
-`-frag-rap`= todos os fragmentos começarão com pontos de acesso aleatórios
-`-profile` = perfil MPEG-DASH (configura valores opcionais padrões para o perfil desejado)
-`-out`     = arquivo de manifesto criado 
+`-dash`    = duração do segmento em milisegundos  
+`-rap`     = força o segmento a começar cum um pontos de acesso aleatórios  
+`-frag-rap`= todos os fragmentos começarão com pontos de acesso aleatórios  
+`-profile` = perfil MPEG-DASH (configura valores opcionais padrões para o perfil desejado)  
+`-out`     = arquivo de manifesto criado  
 
 Maiores informações sobre os parâmetros MP4Box podem ser encotrados [aqui](https://gpac.wp.imt.fr/mp4box/dash/).
 
