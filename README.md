@@ -449,5 +449,17 @@ Maiores informações sobre o codec H.264 podem ser obtidas [aqui](http://trac.f
 - [FFmpeg Command Options](http://www.bogotobogo.com/VideoStreaming/ffmpeg_options_list.php)  
 
 
+**l) Gerar os arquivos de manifesto**
+
+```
+MP4Box -dash 1000 -rap -frag-rap -profile onDemand -out source-mp4.mpd source-video-720.mp4 source-video-480.mp4 source-video-360.mp4 source-video-240.mp4 source-audio-stereo.mp4
+```
+
+**m) Baixar o DASH.js**
+
+```
+cd /var/www/html && sudo wget "https://cdn.dashjs.org/latest/dash.all.min.js"
+```
+
 
 
