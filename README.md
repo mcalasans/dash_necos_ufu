@@ -452,11 +452,21 @@ Maiores informações sobre o codec H.264 podem ser obtidas [aqui](http://trac.f
 
 **l) Gerar os arquivos de manifesto**
 
+Gerar o arquivo de manifesto utilizando como entradas os arquivos de áudio e vídeo gerados anteriormente:
+
 ```
 MP4Box -dash 1000 -rap -frag-rap -profile onDemand -out source-mp4.mpd source_256x144_12_300k.mp4 source_320x240_18_700k.mp4 source_640x480_24_2100k.mp4 source_1280x720_30_3760k.mp4 source-audio-128k.mp4 source-audio-32k.mp4
 ```
 
+Onde,
 
+`-dash`    = duração do segmento em milisegundos
+`-rap`     = força o segmento a começar cum um pontos de acesso aleatórios
+`-frag-rap`= todos os fragmentos começarão com pontos de acesso aleatórios
+`-profile` = perfil MPEG-DASH (configura valores opcionais padrões para o perfil desejado)
+`-out`     = arquivo de manifesto criado 
+
+Maiores informações sobre os parâmetros MP4Box podem ser encotrados [aqui](https://gpac.wp.imt.fr/mp4box/dash/).
 
 **m) Baixar o DASH.js**
 
