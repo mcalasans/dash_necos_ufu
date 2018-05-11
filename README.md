@@ -476,7 +476,7 @@ O melhor player para teste é o DASH.js:
 cd /var/www/html && sudo wget "https://cdn.dashjs.org/latest/dash.all.min.js"
 ```
 
-**n) Configurar o index.hmtl**
+**n) Configurar o index.html**
 
 ```
 cd /var/www/html && sudo mv index.html index.html.def && \
