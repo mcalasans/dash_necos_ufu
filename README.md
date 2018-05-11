@@ -347,8 +347,8 @@ sudo apt install gpac
 O arquivo de teste utilizado está disponível [aqui](https://www.xiph.org/video/vid1.shtml). O arquivo é utilizado apenas para fins acadêmicos e todos os direitos são reservados aos autores do vídeo, conforme especificado na página.
 
 ```
-mkdir ~/video && \
-cd ~/video && \
+mkdir -p ~/video/xiph && \
+cd ~/video/xiph && \
 wget http://downloads.xiph.org/video/A_Digital_Media_Primer_For_Geeks-720p.webm
 ```
 
@@ -497,7 +497,7 @@ Incluir o conteúdo:
   <body>
      <h2> DASHServer - Exemplo de vídeo adaptativo </h2>
      <div>
-       <video data-dashjs-player autoplay src="videos/source-mp4.mpd" controls></video>
+       <video data-dashjs-player autoplay src="videos/xiph/source-mp4.mpd" controls></video>
      </div>
   </body>
 </html>
