@@ -470,10 +470,48 @@ Maiores informações sobre os parâmetros MP4Box podem ser encontrados [aqui](h
 
 **m) Baixar o DASH.js**
 
+O melhor player para teste é o DASH.js:
 
 ```
 cd /var/www/html && sudo wget "https://cdn.dashjs.org/latest/dash.all.min.js"
 ```
+
+**n) Configurar o index.hmtl**
+
+```
+cd /var/www/html && sudo mv index.html index.html.def && \
+sudo ln -s /home/serveruser/videos /var/www/html/ && \
+sudo vim index.html
+```
+
+Incluir o conteúdo:
+
+```
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="utf-8">
+     <title> DASHServer - Exemplo </title>
+     <script src="dash.all.min.js"></script>
+  </head>
+  <body>
+     <h2> DASHServer - Exemplo de vídeo adaptativo </h2>
+     <div>
+       <video data-dashjs-player autoplay src="videos/source-mp4.mpd" controls></video>
+     </div>
+  </body>
+</html>
+```
+
+Salvar e fechar o arquivo (:x). Recarregar o apache2:
+
+```
+sudo systemctl reload apache2
+```
+
+**o) Testar no navegador**
+
+Acessar o endereço 192.168.56.10 no navegador.
 
 
 
