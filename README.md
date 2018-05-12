@@ -1,6 +1,6 @@
 # dash_necos_ufu
 
-Para compreensão do conceito de streaming adaptativo, recomenda-se a leitura do artigo [Adaptative Streaming](https://bitmovin.com/adaptive-streaming/). Outras referências de apoio sobre o MPEG-DASH:
+Para compreensão do conceito de streaming adaptativo, recomenda-se a leitura do artigo [Adaptive Streaming](https://bitmovin.com/adaptive-streaming/). Outras referências de apoio sobre o MPEG-DASH:
 
 - [MPEG-DASH](https://mpeg.chiariglione.org/standards/mpeg-dash)
 - [How to encode Multi-bitrate videos in MPEG-DASH for MSE based media players - 1](https://blog.streamroot.io/encode-multi-bitrate-videos-mpeg-dash-mse-based-media-players/) e [2](https://blog.streamroot.io/encode-multi-bitrate-videos-mpeg-dash-mse-based-media-players-22/)  
