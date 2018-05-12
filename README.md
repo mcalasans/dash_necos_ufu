@@ -466,7 +466,7 @@ Onde,
 `-profile` = perfil MPEG-DASH (configura valores opcionais padrões para o perfil desejado)  
 `-out`     = arquivo de manifesto criado  
 
-Maiores informações sobre os parâmetros MP4Box podem ser encontrados [aqui](https://gpac.wp.imt.fr/mp4box/dash/).
+Maiores informações sobre os parâmetros MP4Box podem ser encontradas [aqui](https://gpac.wp.imt.fr/mp4box/dash/).
 
 **m) Baixar o DASH.js**
 
