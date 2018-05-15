@@ -401,8 +401,8 @@ Extrair os arquivos de vídeos e recodificá-los de quatro formas diferentes, va
 | Resolução | Fps | Bitrate |
 | --------- | --- | ------- |
 | 256x144   | 12  | 300k    | 
-| 320x240   | 18  | 700k    |
-| 640x480   | 24  | 2100k   |
+| 426x240   | 18  | 700k    |
+| 854x480   | 24  | 2100k   |
 | 1280x720  | 30  | 3760k   |
 
 Abaixo, algumas referências sobre escolha de resoluções de vídeo:
@@ -418,8 +418,8 @@ O tamanho do seguimento nas quatro versões é igual a 1s. Os comandos ```ffmpeg
 
 ```
 ffmpeg -i source.mp4 -an -r 12 -c:v libx264 -x264-params 'keyint=12:min-keyint=12:no-scenecut' -b:v 300k -maxrate 300k -bufsize 150k -vf 'scale=256:144' source_256x144_12_300k.mp4 && \
-ffmpeg -i source.mp4 -an -r 18 -c:v libx264 -x264-params 'keyint=18:min-keyint=18:no-scenecut' -b:v 700k -maxrate 700k -bufsize 350k -vf 'scale=320:240' source_320x240_18_700k.mp4 && \
-ffmpeg -i source.mp4 -an -r 24 -c:v libx264 -x264-params 'keyint=24:min-keyint=24:no-scenecut' -b:v 2100k -maxrate 2100k -bufsize 1050k -vf 'scale=640:480' source_640x480_24_2100k.mp4 && \
+ffmpeg -i source.mp4 -an -r 18 -c:v libx264 -x264-params 'keyint=18:min-keyint=18:no-scenecut' -b:v 700k -maxrate 700k -bufsize 350k -vf 'scale=426:240' source_426x240_18_700k.mp4 && \
+ffmpeg -i source.mp4 -an -r 24 -c:v libx264 -x264-params 'keyint=24:min-keyint=24:no-scenecut' -b:v 2100k -maxrate 2100k -bufsize 1050k -vf 'scale=854:480' source_854x480_24_2100k.mp4 && \
 ffmpeg -i source.mp4 -an -r 30 -c:v libx264 -x264-params 'keyint=30:min-keyint=30:no-scenecut' -b:v 3760k -maxrate 3760k -bufsize 1880k -vf 'scale=1280:720' source_1280x720_30_3760k.mp4
 ```
 
@@ -455,7 +455,7 @@ Maiores informações sobre o codec H.264 podem ser obtidas [aqui](http://trac.f
 Gerar o arquivo de manifesto utilizando como entradas os arquivos de áudio e vídeo gerados anteriormente:
 
 ```
-MP4Box -dash 1000 -rap -frag-rap -profile onDemand -out source-mp4.mpd source_256x144_12_300k.mp4 source_320x240_18_700k.mp4 source_640x480_24_2100k.mp4 source_1280x720_30_3760k.mp4 source-audio-128k.mp4 source-audio-32k.mp4
+MP4Box -dash 1000 -rap -frag-rap -profile onDemand -out source-mp4.mpd source_256x144_12_300k.mp4 source_426x240_18_700k.mp4 source_854x480_24_2100k.mp4 source_1280x720_30_3760k.mp4 source-audio-128k.mp4 source-audio-32k.mp4
 ```
 
 Onde,
