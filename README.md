@@ -349,7 +349,7 @@ O arquivo de teste utilizado está disponível [aqui](https://www.xiph.org/video
 ```
 mkdir -p ~/video/xiph && \
 cd ~/video/xiph && \
-wget http://downloads.xiph.org/video/A_Digital_Media_Primer_For_Geeks-720p.webm
+wget -O source.webm http://downloads.xiph.org/video/A_Digital_Media_Primer_For_Geeks-720p.webm
 ```
 
 Como o vídeo está em formato WebM, ele precisará ser convertido para MP4:
