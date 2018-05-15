@@ -417,10 +417,10 @@ Abaixo, algumas referências sobre escolha de resoluções de vídeo:
 O tamanho do seguimento nas quatro versões é igual a 1s. Os comandos ```ffmpeg``` correspondentes são apresentados a seguir:
 
 ```
-ffmpeg -i source.mp4 -an -r 12 -c:v libx264 -x264-params 'keyint=12:min-keyint=12:no-scenecut' -b:v 300k -maxrate 300k -bufsize 150k -vf 'scale=256:144' source_256x144_12_300k.mp4 && \
-ffmpeg -i source.mp4 -an -r 18 -c:v libx264 -x264-params 'keyint=18:min-keyint=18:no-scenecut' -b:v 700k -maxrate 700k -bufsize 350k -vf 'scale=426:240' source_426x240_18_700k.mp4 && \
-ffmpeg -i source.mp4 -an -r 24 -c:v libx264 -x264-params 'keyint=24:min-keyint=24:no-scenecut' -b:v 2100k -maxrate 2100k -bufsize 1050k -vf 'scale=854:480' source_854x480_24_2100k.mp4 && \
-ffmpeg -i source.mp4 -an -r 30 -c:v libx264 -x264-params 'keyint=30:min-keyint=30:no-scenecut' -b:v 3760k -maxrate 3760k -bufsize 1880k -vf 'scale=1280:720' source_1280x720_30_3760k.mp4
+ffmpeg -i source.mp4 -an -r 12 -c:v libx264 -x264opts 'keyint=12:min-keyint=12:no-scenecut' -b:v 300k -maxrate 300k -bufsize 150k -vf 'scale=256:144' source_256x144_12_300k.mp4 && \
+ffmpeg -i source.mp4 -an -r 18 -c:v libx264 -x264opts 'keyint=18:min-keyint=18:no-scenecut' -b:v 700k -maxrate 700k -bufsize 350k -vf 'scale=426:240' source_426x240_18_700k.mp4 && \
+ffmpeg -i source.mp4 -an -r 24 -c:v libx264 -x264opts 'keyint=24:min-keyint=24:no-scenecut' -b:v 2100k -maxrate 2100k -bufsize 1050k -vf 'scale=854:480' source_854x480_24_2100k.mp4 && \
+ffmpeg -i source.mp4 -an -r 30 -c:v libx264 -x264opts 'keyint=30:min-keyint=30:no-scenecut' -b:v 3760k -maxrate 3760k -bufsize 1880k -vf 'scale=1280:720' source_1280x720_30_3760k.mp4
 ```
 
 Onde,
@@ -429,7 +429,7 @@ Onde,
 `-an`          = desconsidera áudio  
 `-r`           = taxa de quadros/segundo (fps)  
 `-c:v`         = codec de vídeo  
-`-x264-params` = soprepõe as configurações usando uma lista de parametro=valor separados por dois pontos (:)  
+`-x264opts`    = configura parâmetros x264 como uma lista de parametro=valor separados por dois pontos (:)  
 `keyint`       = tamanho máximo do GOP (group of pictures; distancia entre I-frames)  
 `min-keyint`   = tamanho mínimo do GOP  
 `no-scenecut`  = desabilita completamente decisão adaptativa de quadros I-frame  
